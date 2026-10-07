@@ -8,6 +8,7 @@ class Program
         PrintEmployees(employees);
         RemoveAndPrintEmployees(employees);
         AddEmployess(employees);
+        PrintTwoLatestEmployees(employees);
     public static void AddEmployess(Stack<Employee> employees)
     {
         employees.Push(new Employee { Id = Guid.NewGuid(), Name = "Oskar L.", Gender = Gender.Male, Salary = 35000, });
@@ -26,6 +27,16 @@ class Program
 
         Console.WriteLine("--------------------------------------------");
     }
+
+    public static void PrintTwoLatestEmployees(Stack<Employee> employees)
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            Employee employeew = employees.Peek();
+            employeew.PrintEmployeeInfo(employees);
+        }
+    }
+
     public static void RemoveAndPrintEmployees(Stack<Employee> employees)
     {
         int amountEmployees = employees.Count;
