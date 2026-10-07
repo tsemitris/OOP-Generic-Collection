@@ -6,6 +6,7 @@ class Program
     {
         Console.WriteLine("Hello, World!");
         PrintEmployees(employees);
+        RemoveAndPrintEmployees(employees);
         AddEmployess(employees);
     public static void AddEmployess(Stack<Employee> employees)
     {
@@ -20,6 +21,17 @@ class Program
     {
         foreach (Employee employee in employees)
         {
+            employee.PrintEmployeeInfo(employees);
+        }
+
+        Console.WriteLine("--------------------------------------------");
+    }
+    public static void RemoveAndPrintEmployees(Stack<Employee> employees)
+    {
+        int amountEmployees = employees.Count;
+        for (int i = 0; i < amountEmployees; i++)
+        {
+            Employee employee = employees.Pop();
             employee.PrintEmployeeInfo(employees);
         }
 
