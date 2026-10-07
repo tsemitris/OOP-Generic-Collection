@@ -5,6 +5,7 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Hello, World!");
+        PrintEmployees(employees);
         AddEmployess(employees);
     public static void AddEmployess(Stack<Employee> employees)
     {
@@ -14,5 +15,14 @@ class Program
         employees.Push(new Employee { Id = Guid.NewGuid(), Name = "David S.", Gender = Gender.Male, Salary = 40000, });
         employees.Push(new Employee { Id = Guid.NewGuid(), Name = "Linnea R.", Gender = Gender.Female, Salary = 33000, });
     }
+
+    public static void PrintEmployees(Stack<Employee> employees)
+    {
+        foreach (Employee employee in employees)
+        {
+            employee.PrintEmployeeInfo(employees);
+        }
+
+        Console.WriteLine("--------------------------------------------");
     }
 }
