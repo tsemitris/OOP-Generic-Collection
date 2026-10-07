@@ -5,8 +5,12 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Hello, World!");
+        Stack<Employee> employees = new Stack<Employee>();
+
+        AddEmployess(employees);
         PrintEmployees(employees);
         RemoveAndPrintEmployees(employees);
+
         AddEmployess(employees);
         PrintTwoLatestEmployees(employees);
         CheckStackLenght(employees);
