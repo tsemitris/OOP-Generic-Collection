@@ -9,6 +9,10 @@ class Program
         RemoveAndPrintEmployees(employees);
         AddEmployess(employees);
         PrintTwoLatestEmployees(employees);
+        CheckStackLenght(employees);
+
+    }
+
     public static void AddEmployess(Stack<Employee> employees)
     {
         employees.Push(new Employee { Id = Guid.NewGuid(), Name = "Oskar L.", Gender = Gender.Male, Salary = 35000, });
@@ -48,4 +52,18 @@ class Program
 
         Console.WriteLine("--------------------------------------------");
     }
+
+    public static void CheckStackLenght(Stack<Employee> employees)
+    {
+        if (employees.Count >= 3)
+        {
+            Console.WriteLine("\nObject number 3 exits in the stack\n");
+        }
+        else
+        {
+            Console.WriteLine("\nObject number 3 does not exist in the stack\n");
+        }
+    }
+
+
 }
