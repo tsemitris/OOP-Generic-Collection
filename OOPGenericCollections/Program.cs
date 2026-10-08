@@ -14,6 +14,15 @@ class Program
         PrintTwoLatestEmployees(employees);
         CheckStackLenght(employees);
 
+        List<Employee> externalEmployees = new List<Employee>();
+
+        AddEmployees(externalEmployees);
+        CheckExistence(externalEmployees, externalEmployees[4]);
+        CheckExistence(externalEmployees, new Employee { Id = Guid.NewGuid(), Name = "Gustaf V.", Gender = Gender.Male, Salary = 30000 });
+
+        FindMaleGender(externalEmployees);
+        FindAllMaleGender(externalEmployees);
+
     }
 
     public static void AddEmployess(Stack<Employee> employees)
@@ -23,6 +32,15 @@ class Program
         employees.Push(new Employee { Id = Guid.NewGuid(), Name = "Anna S.", Gender = Gender.Female, Salary = 32500, });
         employees.Push(new Employee { Id = Guid.NewGuid(), Name = "David S.", Gender = Gender.Male, Salary = 40000, });
         employees.Push(new Employee { Id = Guid.NewGuid(), Name = "Linnea R.", Gender = Gender.Female, Salary = 33000, });
+    }
+
+    public static void AddEmployees(List<Employee> externalEmployees)
+    {
+        externalEmployees.Add(new Employee { Id = Guid.NewGuid(), Name = "Oskar L.", Gender = Gender.Male, Salary = 35000, });
+        externalEmployees.Add(new Employee { Id = Guid.NewGuid(), Name = "Lucas D.", Gender = Gender.Male, Salary = 35000, });
+        externalEmployees.Add(new Employee { Id = Guid.NewGuid(), Name = "Anna S.", Gender = Gender.Female, Salary = 32500, });
+        externalEmployees.Add(new Employee { Id = Guid.NewGuid(), Name = "David S.", Gender = Gender.Male, Salary = 40000, });
+        externalEmployees.Add(new Employee { Id = Guid.NewGuid(), Name = "Linnea R.", Gender = Gender.Female, Salary = 33000, });
     }
 
     public static void PrintEmployees(Stack<Employee> employees)
@@ -39,8 +57,8 @@ class Program
     {
         for (int i = 0; i < 2; i++)
         {
-            Employee employeew = employees.Peek();
-            employeew.PrintEmployeeInfo(employees);
+            Employee employee = employees.Peek();
+            employee.PrintEmployeeInfo(employees);
         }
     }
 
@@ -68,5 +86,46 @@ class Program
         }
     }
 
+    public static void CheckExistence(List<Employee> externalEmployees, Employee employee)
+    {
+        if (externalEmployees.Contains(employee))
+        {
+            Console.WriteLine($"{employee.Name} object exist in the list");
+        }
+        else
+        {
+            Console.WriteLine($"{employee.Name} object does not exist in the list");
+        }
+    }
 
+    public static void FindMaleGender(List<Employee> externalEmployees)
+    {
+        Employee? externalMaleEmployee = externalEmployees.Find(e => e.Gender == Gender.Male);
+
+        if (externalMaleEmployee != null)
+        {
+            externalMaleEmployee.PrintEmployeeInfo();
+        }
+        else
+        {
+            Console.WriteLine("I couldn't find any male employee.");
+        }
+    }
+
+    public static void FindAllMaleGender(List<Employee> externalEmployees)
+    {
+        List<Employee> externalMaleEmployees = externalEmployees.FindAll(e => e.Gender == Gender.Male);
+
+        if (externalMaleEmployees.Count > 0)
+        {
+            foreach (Employee employee in externalMaleEmployees)
+            {
+                employee.PrintEmployeeInfo();
+            }
+        }
+        else
+        {
+            Console.WriteLine("I couldn't find any male employee.");
+        }
+    }
 }
