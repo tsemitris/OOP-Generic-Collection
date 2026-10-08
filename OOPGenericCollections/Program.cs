@@ -21,6 +21,8 @@ class Program
         CheckExistence(externalEmployees, new Employee { Id = Guid.NewGuid(), Name = "Gustaf V.", Gender = Gender.Male, Salary = 30000 });
 
         FindMaleGender(externalEmployees);
+        FindAllMaleGender(externalEmployees);
+
     }
 
     public static void AddEmployess(Stack<Employee> employees)
@@ -103,6 +105,23 @@ class Program
         if (externalMaleEmployee != null)
         {
             externalMaleEmployee.PrintEmployeeInfo();
+        }
+        else
+        {
+            Console.WriteLine("I couldn't find any male employee.");
+        }
+    }
+
+    public static void FindAllMaleGender(List<Employee> externalEmployees)
+    {
+        List<Employee> externalMaleEmployees = externalEmployees.FindAll(e => e.Gender == Gender.Male);
+
+        if (externalMaleEmployees.Count > 0)
+        {
+            foreach (Employee employee in externalMaleEmployees)
+            {
+                employee.PrintEmployeeInfo();
+            }
         }
         else
         {
