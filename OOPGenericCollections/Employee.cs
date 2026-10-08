@@ -18,7 +18,7 @@ public class Employee
 
     public void PrintEmployeeInfo(Stack<Employee> employees)
     {
-        Console.WriteLine($"Employee informations \nID: {Id} \nName: {Name} \nGender: {Gender} \nSalary: {Salary}");
+        Console.WriteLine($"Employee informations: \nID: {Id} \nName: {Name} \nGender: {Gender} \nSalary: {Salary}");
         Console.WriteLine($"\n---------------------- \nItems left in the stack - {employees.Count}\n---------------------- \n");
     }
 
