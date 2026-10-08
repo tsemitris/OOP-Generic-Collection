@@ -57,8 +57,8 @@ class Program
     {
         for (int i = 0; i < 2; i++)
         {
-            Employee employeew = employees.Peek();
-            employeew.PrintEmployeeInfo(employees);
+            Employee employee = employees.Peek();
+            employee.PrintEmployeeInfo(employees);
         }
     }
 
