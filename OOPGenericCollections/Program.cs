@@ -100,7 +100,7 @@ class Program
 
     public static void FindMaleGender(List<Employee> externalEmployees)
     {
-        Employee externalMaleEmployee = externalEmployees.Find(e => e.Gender == Gender.Male);
+        Employee? externalMaleEmployee = externalEmployees.Find(e => e.Gender == Gender.Male);
 
         if (externalMaleEmployee != null)
         {
