@@ -14,6 +14,7 @@ class Program
         PrintTwoLatestEmployees(employees);
         CheckStackLenght(employees);
 
+        List<Employee> externalEmployees = new List<Employee>();
     }
 
     public static void AddEmployess(Stack<Employee> employees)
