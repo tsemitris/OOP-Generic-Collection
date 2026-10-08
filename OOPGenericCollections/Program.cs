@@ -17,7 +17,7 @@ class Program
         List<Employee> externalEmployees = new List<Employee>();
 
         AddEmployees(externalEmployees);
-        CheckExistence(externalEmployees, externalEmployees[5]);
+        CheckExistence(externalEmployees, externalEmployees[4]);
         CheckExistence(externalEmployees, new Employee { Id = Guid.NewGuid(), Name = "Gustaf V.", Gender = Gender.Male, Salary = 30000 });
 
     }
@@ -87,11 +87,11 @@ class Program
     {
         if (externalEmployees.Contains(employee))
         {
-            Console.WriteLine($"{employee} object exist in the list");
+            Console.WriteLine($"{employee.Name} object exist in the list");
         }
         else
         {
-            Console.WriteLine($"{employee} object does not exist in the list");
+            Console.WriteLine($"{employee.Name} object does not exist in the list");
         }
     }
 }
