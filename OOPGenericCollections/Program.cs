@@ -74,9 +74,9 @@ class Program
         Console.WriteLine("--------------------------------------------");
     }
 
-    public static void CheckStackLenght(Stack<Employee> employees)
+    public static void CheckStackLength(Stack<Employee> employees)
     {
-        if (employees.Count >= 3)
+        if (employees.ElementAtOrDefault(3) != null)
         {
             Console.WriteLine("\nObject number 3 exits in the stack\n");
         }
