@@ -74,15 +74,15 @@ class Program
         Console.WriteLine("--------------------------------------------");
     }
 
-    public static void CheckObjectExistence(Stack<Employee> employees, int checkNumber)
+    public static void CheckObjectExistence(Stack<Employee> employees, int objectNumber)
     {
-        if (employees.ElementAtOrDefault(checkNumber) != null)
+        if (employees.ElementAtOrDefault(objectNumber) != null)
         {
-            Console.WriteLine($"\nObject number {checkNumber} exits in the stack\n");
+            Console.WriteLine($"\nObject number {objectNumber} exits in the stack\n");
         }
         else
         {
-            Console.WriteLine($"\nObject number {checkNumber} does not exist in the stack\n");
+            Console.WriteLine($"\nObject number {objectNumber} does not exist in the stack\n");
         }
     }
 
