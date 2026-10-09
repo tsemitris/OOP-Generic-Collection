@@ -12,7 +12,7 @@ class Program
 
         AddEmployess(employees);
         PrintTwoLatestEmployees(employees);
-        CheckStackLenght(employees);
+        CheckObjectExistence(employees, 3);
 
         List<Employee> externalEmployees = new List<Employee>();
 
@@ -74,15 +74,15 @@ class Program
         Console.WriteLine("--------------------------------------------");
     }
 
-    public static void CheckStackLength(Stack<Employee> employees)
+    public static void CheckObjectExistence(Stack<Employee> employees, int checkNumber)
     {
-        if (employees.ElementAtOrDefault(3) != null)
+        if (employees.ElementAtOrDefault(checkNumber) != null)
         {
-            Console.WriteLine("\nObject number 3 exits in the stack\n");
+            Console.WriteLine($"\nObject number {checkNumber} exits in the stack\n");
         }
         else
         {
-            Console.WriteLine("\nObject number 3 does not exist in the stack\n");
+            Console.WriteLine($"\nObject number {checkNumber} does not exist in the stack\n");
         }
     }
 
