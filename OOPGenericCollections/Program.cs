@@ -7,17 +7,17 @@ class Program
         Stack<Employee> employees = new Stack<Employee>();
 
         AddEmployess(employees);
+        Employee thirdEmployee = employees.ElementAt(2);
         PrintEmployees(employees);
-        RemoveAndPrintEmployees(employees);
+        RemovePrintAndRestoreEmployees(employees);
 
-        AddEmployess(employees);
         PrintTwoLatestEmployees(employees);
-        CheckObjectExistence(employees, 3);
+        CheckObjectExistence(employees, thirdEmployee);
 
         List<Employee> externalEmployees = new List<Employee>();
 
         AddEmployees(externalEmployees);
-        CheckExistence(externalEmployees, externalEmployees[4]);
+        CheckExistence(externalEmployees, externalEmployees[2]);
         CheckExistence(externalEmployees, new Employee { Id = Guid.NewGuid(), Name = "Gustaf V.", Gender = Gender.Male, Salary = 30000 });
 
         FindMaleGender(externalEmployees);
@@ -62,27 +62,36 @@ class Program
         }
     }
 
-    public static void RemoveAndPrintEmployees(Stack<Employee> employees)
+    public static void RemovePrintAndRestoreEmployees(Stack<Employee> employees)
     {
+        List<Employee> removedEmployees = new List<Employee>();
+
         int amountEmployees = employees.Count;
         for (int i = 0; i < amountEmployees; i++)
         {
             Employee employee = employees.Pop();
+            removedEmployees.Add(employee);
             employee.PrintEmployeeInfo(employees);
+        }
+
+        // Add the removed employees back on stack
+        for (int i = removedEmployees.Count - 1; i >= 0; i--)
+        {
+            employees.Push(removedEmployees[i]);
         }
 
         Console.WriteLine("--------------------------------------------");
     }
 
-    public static void CheckObjectExistence(Stack<Employee> employees, int objectNumber)
+    public static void CheckObjectExistence(Stack<Employee> employees, Employee employee)
     {
-        if (employees.ElementAtOrDefault(objectNumber) != null)
+        if (employees.Any(e => e.Id == employee.Id))
         {
-            Console.WriteLine($"\nObject number {objectNumber} exits in the stack\n");
+            Console.WriteLine($"\nObject number 2 exits in the stack\n");
         }
         else
         {
-            Console.WriteLine($"\nObject number {objectNumber} does not exist in the stack\n");
+            Console.WriteLine($"\nObject number 2 does not exist in the stack\n");
         }
     }
 
